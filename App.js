@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
+import { useFonts } from "expo-font"
+import AppNavigator from './src/navigation';
 
 export default function App() {
+  const [loaded] = useFonts({
+    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Italic': require('./assets/fonts/Poppins-Italic.ttf'),
+    'Poppins-Black': require('./assets/fonts/Poppins-Black.ttf'),
+    'Poppins-Light': require('./assets/fonts/Poppins-Light.ttf')
+  })
+  
+  if (!loaded) {
+    return <ActivityIndicator />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppNavigator />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
