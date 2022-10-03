@@ -6,7 +6,7 @@ import { categories } from "../../constants/data";
 
 const Categories = ({navigation}) => {
     const onSelected = (item) =>{
-        console.warn('item', item)
+        navigation.navigate('Productos', {name: item.title, categoryId: item.id})
     }
     const renderItem = ({item}) => <CategoryItem item={item} onSelected={onSelected} />
     return ( 

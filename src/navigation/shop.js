@@ -7,9 +7,24 @@ const Stack = createNativeStackNavigator()
 const ShopNavigator = () => {
     return ( 
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Categories}/>
-            <Stack.Screen name="Productos" component={Products}/>
-            <Stack.Screen name="Detalle" component={Product}/>
+            <Stack.Screen 
+                name="Home" 
+                component={Categories}
+            />
+            <Stack.Screen 
+                name="Productos" 
+                component={Products}
+                options={({ route }) => ({
+                    title: route.params.name
+                })} 
+            />
+            <Stack.Screen 
+                name="Product" 
+                component={Product} 
+                options={({ route }) => ({
+                    title: route.params.name
+                })}
+            />
         </Stack.Navigator>
      );
 }
