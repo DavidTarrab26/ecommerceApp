@@ -10,6 +10,9 @@ const ShopNavigator = () => {
             <Stack.Screen 
                 name="Home" 
                 component={Categories}
+                options={{
+                    title: "Tienda"
+                }}
             />
             <Stack.Screen 
                 name="Productos" 
