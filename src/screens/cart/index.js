@@ -1,7 +1,7 @@
 import { FlatList, Text, View } from "react-native";
 import {styles} from "./style"
-import CartItem from "../../components"
-import { cart } from "../../constants/data";
+import CartItem from "../../components/cart-item"
+import {cart} from "../../constants/data";
 
 
 const Cart = ({navigation}) => {
@@ -11,11 +11,10 @@ const Cart = ({navigation}) => {
     const renderItem = ({item}) => <CartItem item={item} onDelete={onDelete} />
     return ( 
         <View style={styles.container}>
-            {/* <FlatList
+            <FlatList
                 data={cart}
                 renderItem={renderItem}
-            /> */}
-            <Text>Carrito</Text>
+            />
         </View>
      );
 }
