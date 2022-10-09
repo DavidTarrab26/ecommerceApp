@@ -2,13 +2,22 @@ import React from "react";
 import { FlatList } from "react-native";
 import CategoryItem from "../../components/category-item";
 import { styles } from "./styles";
-import { categories } from "../../constants/data";
+import { useDispatch, useSelector } from "react-redux";
+import {selectCategory} from "../../store/actions"
 
 const Categories = ({navigation}) => {
+    
+    const dispatch = useDispatch()
+    
+    const categories = useSelector((state) => state.category.categories)
+    
     const onSelected = (item) =>{
-        navigation.navigate('Productos', {name: item.title, categoryId: item.id})
+        dispatch(selectCategory(item.id))
+        navigation.navigate('Productos', {name: item.title})
     }
+    
     const renderItem = ({item}) => <CategoryItem item={item} onSelected={onSelected} />
+    
     return ( 
         <FlatList
             data={categories}
