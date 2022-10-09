@@ -9,8 +9,8 @@ const Products = ({navigation}) => {
 
     const selectedCategory = useSelector((state) => state.category.selected)
 
-    console.warn('selectedCategory', selectedCategory)
-    /* const productsFilter = products.filter(product => product.categoryId === selectedCategory.id) */
+    const productsFilter = products.filter(product => product.categoryId === selectedCategory.id)
+    
     const renderItem = ({item}) => <ProductsItem item={item} onSelected={onSelected} />
     
     const onSelected = (item) => {
@@ -20,7 +20,7 @@ const Products = ({navigation}) => {
 
     return ( 
         <FlatList
-            data={[]}
+            data={productsFilter}
             renderItem={renderItem}
             keyExtractor={item=> item.id.toString()}
         />
