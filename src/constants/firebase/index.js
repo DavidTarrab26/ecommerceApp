@@ -1,0 +1,1 @@
+export const URL_API = 'https://ecommerceapp-7a8a6-default-rtdb.firebaseio.com/'
