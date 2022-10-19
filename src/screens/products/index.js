@@ -1,31 +1,26 @@
-import React, {useEffect} from "react";
-import { FlatList } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { Button, Text, View, FlatList } from "react-native";
+import { useSelector } from "react-redux";
 import ProductsItem from "../../components/products-item";
-import {filteredProducts, selectedProduct} from "../../store/actions"
+import { products } from "../../constants/data";
+import { styles } from "./styles";
 
 const Products = ({navigation}) => {
-    
-    const dispatch = useDispatch()
 
     const selectedCategory = useSelector((state) => state.category.selected)
 
-    const productsFiltered = useSelector((state) => state.products.filteredProducts)
+    const productsFilter = products.filter(product => product.categoryId === selectedCategory.id)
     
     const renderItem = ({item}) => <ProductsItem item={item} onSelected={onSelected} />
     
     const onSelected = (item) => {
-        dispatch(selectedProduct(item.id))
         navigation.navigate('Product', {name: item.title, productId: item.id})
     }
 
-    useEffect(() =>{
-        dispatch(filteredProducts(selectedCategory.id))
-    },[])
 
     return ( 
         <FlatList
-            data={productsFiltered}
+            data={productsFilter}
             renderItem={renderItem}
             keyExtractor={item=> item.id.toString()}
         />
