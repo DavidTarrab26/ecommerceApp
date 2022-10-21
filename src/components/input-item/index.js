@@ -1,6 +1,6 @@
 import React from "react";
 import { View, TextInput, Text} from "react-native";
-import Label from "../label";
+import Label from "../label-item";
 import { styles } from "./styles";
 
 const Input = ({
