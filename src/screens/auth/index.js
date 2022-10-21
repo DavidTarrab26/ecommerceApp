@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import{ signUp} from "../../store/actions"
 import { colors } from "../../constants/themes";
 import { styles } from "./styles";
+import Input from "../../components/input-item";
 
 const Auth = ({ navigation }) => {
     const dispatch = useDispatch()
@@ -22,9 +23,9 @@ const Auth = ({ navigation }) => {
         <KeyboardAvoidingView style={styles.containerKeyboard} behavior="padding">
             <View style={ styles.container}>
                 <Text style={styles.title}>{title}</Text>
-                <Text style={styles.label}>Email</Text>
-                <TextInput 
+                <Input 
                     style={styles.input}
+                    label="Email"
                     value={email}
                     placeholder="ingrese su email"
                     placeholderTextColor={colors.gray}
@@ -33,9 +34,9 @@ const Auth = ({ navigation }) => {
                     autoCorrect={false}
                     onChangeText={(text) => setEmail(text)}
                 />
-                <Text style={styles.label}>Password</Text>
-                <TextInput 
+                <Input 
                     style={styles.input}
+                    label="Contraseña"
                     value={password}
                     placeholderTextColor={colors.gray}
                     placeholder="ingrese su contraseña"
