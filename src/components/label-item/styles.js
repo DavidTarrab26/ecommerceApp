@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     label: {
         fontSize: 14,
         fontFamily: 'Poppins-Regular',
-        marginVertical: 5,
-        color: colors.text
+        marginVertical: 20,
+        color: colors.primary
     },
 });

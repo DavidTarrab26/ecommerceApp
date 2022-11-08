@@ -8,8 +8,6 @@ const Input = ({
     children,
     value,
     onChangeText,
-    onFocus,
-    onBlur,
     maxLength,
     placeholder,
     placeholderTextColor,
@@ -28,8 +26,6 @@ const Input = ({
                     editable={editable}
                     value={value}
                     onChangeText={onChangeText}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
                     maxLength={maxLength}
                     placeholder={placeholder}
                     placeholderTextColor={placeholderTextColor}
