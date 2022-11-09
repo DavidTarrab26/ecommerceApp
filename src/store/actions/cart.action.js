@@ -17,7 +17,7 @@ export const confirmOrder = (order) =>({
     order
 })
 
-export const confirmCart = (items, total) => {
+export const confirmCart = (items, total, location) => {
     return async (dispatch) => {
         try {
             const response = await fetch(`${URL_API}/orders.json`, {
@@ -29,6 +29,7 @@ export const confirmCart = (items, total) => {
                     date: Date.now(),
                     items,
                     total,
+                    location,
                 })
             })
 

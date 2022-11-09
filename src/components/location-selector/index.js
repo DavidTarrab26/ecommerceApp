@@ -45,7 +45,7 @@ const LocationSelector = ({ onLocation }) => {
           <Text>{`lat: ${pickedLocation.lat}, lng: ${pickedLocation.lng}`}</Text>
         )}
       </View>
-      <Button title="Get Location" color={colors.secondary} onPress={onHandlerLocation} />
+      <Button title="Agregar mi ubicacion" color={colors.secondary} onPress={onHandlerLocation} />
     </View>
   );
 };

@@ -3,21 +3,27 @@ import {styles} from "./style"
 import CartItem from "../../components/cart-item"
 import { useDispatch, useSelector } from "react-redux";
 import { confirmCart, confirmOrder, removeFromCart } from "../../store/actions/cart.action";
+import LocationSelector from "../../components/location-selector";
+import { useState } from "react";
 
 
 const Cart = ({navigation}) => {
 
+    const [location, setLocation] = useState("")
     const total = useSelector((state)=> state.cart.total)
     const items = useSelector((state)=> state.cart.items)
     const dispatch = useDispatch()
 
     const onConfirm = () => {
-        dispatch(confirmCart(items, total));
+        dispatch(confirmCart(items, total, location));
     }
     const onDelete = (id) => {
         dispatch(removeFromCart(id))
     }
     const renderItem = ({item}) => <CartItem item={item} onDelete={onDelete} />
+    const onHandlerLocation = (location) =>{
+        setLocation(location)
+    }
     return ( 
         <View style={styles.container}>
             <View style={styles.containerList}>
@@ -27,14 +33,17 @@ const Cart = ({navigation}) => {
                         style={styles.containerList}
                     />
             </View>
+            <View>
+                <LocationSelector onLocation={onHandlerLocation} />
+            </View>
             <View style={styles.footer}>
-                <TouchableOpacity 
+                {/* <TouchableOpacity 
                     onPress={null}
                     style={items.length === 0 ?  styles.disabledButtonConfirm : styles.buttonConfirm}
                     disabled={items.length === 0}
                 >
                     <Text style={styles.textButtonConfirm}>Añadir Direccion</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity 
                     onPress={onConfirm}
                     style={items.length === 0 ?  styles.disabledButtonConfirm : styles.buttonConfirm}
