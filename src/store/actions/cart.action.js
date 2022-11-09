@@ -1,5 +1,6 @@
 import { cartTypes } from "../types";
 import {URL_API} from '../../constants/firebase'
+import { URL_GEOCODING } from "../../utils/maps";
 const {ADD_TO_CART, REMOVE_FROM_CART, CONFIRM_ORDER} = cartTypes
 
 export const addToCart = (item) => ({
@@ -19,6 +20,13 @@ export const confirmOrder = (order) =>({
 
 export const confirmCart = (items, total, location) => {
     return async (dispatch) => {
+        const response = await fetch(URL_GEOCODING(location?.lat, location?.lng))
+        if(!response.ok) throw new Error("something went wrong!")
+
+        const data = await response.json()
+
+        if(!data.results) throw new Error("something went wrong!")
+        const address = data.results[0].formatted_address
         try {
             const response = await fetch(`${URL_API}/orders.json`, {
                 method: 'POST',
@@ -29,7 +37,7 @@ export const confirmCart = (items, total, location) => {
                     date: Date.now(),
                     items,
                     total,
-                    location,
+                    address,
                 })
             })
 

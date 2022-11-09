@@ -19,6 +19,7 @@ const OrderItem = ({ item, onCancel }) => {
             <View style={styles.contentContainer}>
                 <View style={styles.content}>
                     <Text style={styles.total}>${item.total}</Text>
+                    <Text>{item.address}</Text>
                 </View>
             <TouchableOpacity onPress={() => onCancel(item.id)}>
                 <Ionicons name="close" size={24} color={colors.text} />
