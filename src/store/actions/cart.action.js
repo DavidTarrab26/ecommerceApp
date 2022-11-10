@@ -1,6 +1,7 @@
 import { cartTypes } from "../types";
 import {URL_API} from '../../constants/firebase'
 import { URL_GEOCODING } from "../../utils/maps";
+import { insertCart } from "../../db";
 const {ADD_TO_CART, REMOVE_FROM_CART, CONFIRM_ORDER} = cartTypes
 
 export const addToCart = (item) => ({
@@ -38,14 +39,16 @@ export const confirmCart = (items, total, location) => {
                     items,
                     total,
                     address,
+                    id
                 })
             })
 
             const result = await response.json();
-
+            const resultDb = await insertCart(items, total, address)
             dispatch({
                 type: CONFIRM_ORDER,
                 result: result,
+                id: resultDb.insertId
             })
         } catch (error) {
             console.log(error.message);

@@ -37,13 +37,6 @@ const Cart = ({navigation}) => {
                 <LocationSelector onLocation={onHandlerLocation} />
             </View>
             <View style={styles.footer}>
-                {/* <TouchableOpacity 
-                    onPress={null}
-                    style={items.length === 0 ?  styles.disabledButtonConfirm : styles.buttonConfirm}
-                    disabled={items.length === 0}
-                >
-                    <Text style={styles.textButtonConfirm}>Añadir Direccion</Text>
-                </TouchableOpacity> */}
                 <TouchableOpacity 
                     onPress={onConfirm}
                     style={items.length === 0 ?  styles.disabledButtonConfirm : styles.buttonConfirm}
