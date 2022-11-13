@@ -24,10 +24,23 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.david26433.panaderiaTarrab"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "build": {
+      "preview": {
+        "android": {
+          "buildType": "apk"
+        }
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2ed56393-37e8-4045-9cf6-9b57455ba735"
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
     },
     message: {
-        marginVertical: 5,
+        marginVertical: 0,
     },
     helperText: {
         fontSize: 12,

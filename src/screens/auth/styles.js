@@ -12,11 +12,11 @@ export const styles = StyleSheet.create({
         maxWidth: 400,
         padding: 15,
         margin: 15,
-        borderColor: colors.primary,
+        borderColor: colors.black,
         borderWidth: 1,
         borderRadius: 10,
         backgroundColor: colors.white,
-        height: 300,
+        height: 350,
     },
     title: {
         fontSize: 18,
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 1,
         width: '90%',
         fontFamily: 'Poppins-Regular',
-        marginBottom: 10,
+        marginBottom: 0,
     },
     promptButton: {
         backgroundColor: colors.white,
